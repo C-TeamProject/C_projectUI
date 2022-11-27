@@ -86,6 +86,12 @@ namespace C_TemaProgramming
                 cmd.ExecuteNonQuery();
             }
         }
+        // 콤보박스 선택
+        int year;
+        int month;
+        int day;
+        
+        DateTime today = DateTime.Today; // 현재날짜
 
         //데이터조회
         public DataSet GetUser()
@@ -163,6 +169,74 @@ namespace C_TemaProgramming
                     MessageBox.Show(sb.ToString(), "Selected Rows");
                 }
             }      
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string yeart = comboBox1.SelectedItem.ToString();
+            yeart = yeart.Replace("년", "");
+            //MessageBox.Show(yeart);
+            year = int.Parse(yeart);    // 년도 값
+            
+            comboBox2.Items.Clear();    // 초기화
+            for (int i = 1; i <= 12; i++)
+            {
+                comboBox2.Items.Add(i.ToString() +"월");
+            }
+            comboBox2.SelectedIndex = 0;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string montht = comboBox2.SelectedItem.ToString();
+            montht = montht.Replace("월", "");
+            //MessageBox.Show(montht);
+            month = int.Parse(montht);  // 월 선택 값
+
+            comboBox3.Items.Clear();    // 초기화
+
+            int count;  // 일 개수
+
+            // 31일
+            if (month == 1 & month == 3 & month == 5 & month == 7 & month == 8 & month == 10 & month == 12)
+            {
+                count = 31;
+            }
+            else if(month == 2)
+            {
+                // 윤년
+                if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+                {
+                    count = 29;
+                }
+
+                else
+                {
+                    count = 28;
+                }
+            }
+            // 30일
+            else
+            {
+                count = 30;
+            }
+
+            for (int i = 1; i <= count; i++)
+            {   
+                comboBox3.Items.Add(i.ToString() + "일");
+            }
+
+            
+
+            //comboBox3.SelectedIndex = 0;
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string dayt = comboBox3.SelectedItem.ToString();
+            dayt = dayt.Replace("일", "");
+            day = int.Parse(dayt);  // 일 선택 값
+            MessageBox.Show(day.ToString());
         }
     }
 }
