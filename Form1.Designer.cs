@@ -71,7 +71,7 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.IntegralHeight = false;
-            this.comboBox2.Location = new System.Drawing.Point(235, 47);
+            this.comboBox2.Location = new System.Drawing.Point(237, 47);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(90, 20);
             this.comboBox2.TabIndex = 2;
@@ -100,10 +100,11 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(300, 21);
             this.textBox1.TabIndex = 5;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(42, 125);
+            this.button1.Location = new System.Drawing.Point(370, 125);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 39);
             this.button1.TabIndex = 6;
@@ -113,7 +114,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(194, 125);
+            this.button2.Location = new System.Drawing.Point(508, 125);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(97, 39);
             this.button2.TabIndex = 7;
